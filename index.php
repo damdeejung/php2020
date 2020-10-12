@@ -2,7 +2,7 @@
 <?php
 define('LINE_API',"https://notify-api.line.me/api/notify");
 //$token = "3ACDH8LYP69SBzA171EZs8Vg4Edlh9i5ZBVfBmSUhMk"; //ใส่Token ที่copy เอาไว้
-$str = "สวัสดีตอนเช้าครับ"; //ข้อความที่ต้องการส่ง สูงสุด 1000 ตัวอักษร
+$str = "hello World"; //ข้อความที่ต้องการส่ง สูงสุด 1000 ตัวอักษร
 $stickerPkg = 1; //stickerPackageId
 $stickerId = 106; //stickerId
 $res = notify_message($str,$stickerPkg,$stickerId,$token);
@@ -26,12 +26,12 @@ function notify_message($message,$stickerPkg,$stickerId,$token){
      $context = stream_context_create($headerOptions);
      $result = file_get_contents(LINE_API,FALSE,$context);
      
-     $queryData = http_build_query($queryData,'','&');    
+     $queryData = http_build_query($queryData,'','&');
      $headerOptions = array(
          'http'=>array(
              'method'=>'POST',
              'header'=> "Content-Type: application/x-www-form-urlencoded\r\n"
-                 ."Authorization: Bearer 3ACDH8LYP69SBzA171EZs8Vg4Edlh9i5ZBVfBmSUhMk\r\n"
+                 ."Authorization: Bearer rU5QQMxtA8VE3gWzGmyE9R4GYA3kjIQrArcU0UIKevq\r\n"
                        ."Content-Length: ".strlen($queryData)."\r\n",
              'content' => $queryData
          ),
