@@ -51,9 +51,9 @@ $stickerPkg = 2; //stickerPackageId
 $stickerId = 34; //stickerId
 $image_thumbnail_url = 'https://media.giphy.com/media/q82uvPXb0pY82hcHW6/giphy.gif';  // max size 240x240px JPEG
  
-$res = notify_message($str,$stickerPkg,$stickerId,$token);
+$res = notify_message($str,$stickerPkg,$stickerId,$token,$imageThumbnail);
 print_r($res);
-function notify_message($message,$stickerPkg,$stickerId,$token){
+function notify_message($message,$stickerPkg,$stickerId,$token,$imageThumbnail){
      $queryData = array(
       'message' => $message,
       'stickerPackageId'=>$stickerPkg,
