@@ -38,7 +38,7 @@ $params = array(
   "stickerPkg"     => 1, //stickerPackageId
   "stickerId"      => 2, //stickerId
   "imageThumbnail" => "https://c1.staticflickr.com/9/8220/8292155879_bd917986b4_m.jpg", // max size 240x240px JPEG
- // "imageFullsize"  => "https://c1.staticflickr.com/9/8220/8292155879_bd917986b4_m.jpg", //max size 1024x1024px JPEG
+  "imageFullsize"  => "https://c1.staticflickr.com/9/8220/8292155879_bd917986b4_m.jpg", //max size 1024x1024px JPEG
 );
 $res = notify_message($params, $token);
 // print_r($res);
@@ -49,7 +49,7 @@ function notify_message($params, $token) {
     'stickerPackageId' => $params["stickerPkg"],
     'stickerId'        => $params["stickerId"],
     'imageThumbnail'   => $params["imageThumbnail"],
-  //  'imageFullsize'    => $params["imageFullsize"],
+    'imageFullsize'    => $params["imageFullsize"],
   );
   $queryData = http_build_query($queryData, '', '&');
   $headerOptions = array(
