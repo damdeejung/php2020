@@ -51,7 +51,7 @@ function notify_message($params, $token) {
     'stickerPackageId' => $params["stickerPkg"],
     'stickerId'        => $params["stickerId"],
   );
-  $queryData = http_build_query($queryData, '', '&');
+  $queryData = http_build_query($queryData, '&', ' ');
   $headerOptions = array(
     'http' => array(
       'method'  => 'POST',
