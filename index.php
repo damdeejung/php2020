@@ -37,8 +37,8 @@ $params = array(
   "message"        => "ทดสอบการใช้งานLine Hello World", //ข้อความที่ต้องการส่ง สูงสุด 1000 ตัวอักษร
   "stickerPkg"     => 1, //stickerPackageId
   "stickerId"      => 2, //stickerId
-  "imageThumbnail" => "https://c1.staticflickr.com/9/8220/8292155879_bd917986b4_m.jpg", // max size 240x240px JPEG
-  "imageFullsize"  => "https://c1.staticflickr.com/9/8220/8292155879_bd917986b4_m.jpg", //max size 1024x1024px JPEG
+  "imageThumbnail" => "https://media.giphy.com/media/q82uvPXb0pY82hcHW6/giphy.gif", // max size 240x240px JPEG
+  "imageFullsize"  => "https://media.giphy.com/media/q82uvPXb0pY82hcHW6/giphy.gif", //max size 1024x1024px JPEG
 );
 $res = notify_message($params, $token);
 // print_r($res);
