@@ -34,11 +34,11 @@ function notify_message($message,$stickerPkg,$stickerId,$token){
 define('LINE_API', "https://notify-api.line.me/api/notify");
 $token = "3ACDH8LYP69SBzA171EZs8Vg4Edlh9i5ZBVfBmSUhMk"; //ใส่Token ที่copy เอาไว้
 $params = array(
-  "message"        => "ทดสอบการใช้งานLine Notify API", //ข้อความที่ต้องการส่ง สูงสุด 1000 ตัวอักษร
-  "stickerPkg"     => 2, //stickerPackageId
-  "stickerId"      => 34, //stickerId
+  "message"        => "ทดสอบการใช้งานLine Hello World", //ข้อความที่ต้องการส่ง สูงสุด 1000 ตัวอักษร
+  "stickerPkg"     => 1, //stickerPackageId
+  "stickerId"      => 2, //stickerId
   "imageThumbnail" => "https://c1.staticflickr.com/9/8220/8292155879_bd917986b4_m.jpg", // max size 240x240px JPEG
-  "imageFullsize"  => "https://c1.staticflickr.com/9/8220/8292155879_bd917986b4_m.jpg", //max size 1024x1024px JPEG
+ // "imageFullsize"  => "https://c1.staticflickr.com/9/8220/8292155879_bd917986b4_m.jpg", //max size 1024x1024px JPEG
 );
 $res = notify_message($params, $token);
 // print_r($res);
@@ -49,7 +49,7 @@ function notify_message($params, $token) {
     'stickerPackageId' => $params["stickerPkg"],
     'stickerId'        => $params["stickerId"],
     'imageThumbnail'   => $params["imageThumbnail"],
-    'imageFullsize'    => $params["imageFullsize"],
+  //  'imageFullsize'    => $params["imageFullsize"],
   );
   $queryData = http_build_query($queryData, '', '&');
   $headerOptions = array(
