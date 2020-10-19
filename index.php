@@ -68,10 +68,10 @@ function notify_message($params, $token) {
 }
 */
 define('LINE_API', "https://notify-api.line.me/api/notify");
-$x = 0;
-while($x >= 1) {
-     $token = "3ACDH8LYP69SBzA171EZs8Vg4Edlh9i5ZBVfBmSUhMk"; //ใส่Token ที่copy เอาไว้         
-     while($x <= 0) {
+$x = 2;
+//while($x >= 1) {
+//     $token = "3ACDH8LYP69SBzA171EZs8Vg4Edlh9i5ZBVfBmSUhMk"; //ใส่Token ที่copy เอาไว้         
+     while($x <= 2) {
           $token = "3ACDH8LYP69SBzA171EZs8Vg4Edlh9i5ZBVfBmSUhMk"; //ใส่Token ที่copy เอาไว้
           $i++;          
           $params = array(
@@ -108,5 +108,5 @@ while($x >= 1) {
             return $res;
           }
        }
-     }
+     //}
 ?>
