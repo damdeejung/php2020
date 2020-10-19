@@ -70,10 +70,10 @@ function notify_message($params, $token) {
 define('LINE_API', "https://notify-api.line.me/api/notify");
 $x = 2;
 //while($x >= 1) {
-//     $token = "3ACDH8LYP69SBzA171EZs8Vg4Edlh9i5ZBVfBmSUhMk"; //ใส่Token ที่copy เอาไว้         
+//$token = "3ACDH8LYP69SBzA171EZs8Vg4Edlh9i5ZBVfBmSUhMk"; //ใส่Token ที่copy เอาไว้         
      while($x <= 2) {
           $token = "3ACDH8LYP69SBzA171EZs8Vg4Edlh9i5ZBVfBmSUhMk"; //ใส่Token ที่copy เอาไว้
-          $i++;          
+          $x++;          
           $params = array(
             "message"        => "อรุนสวัสดิ์ครับ", //ข้อความที่ต้องการส่ง สูงสุด 1000 ตัวอักษร
             "stickerPkg"     => 1, //stickerPackageId
@@ -107,6 +107,6 @@ $x = 2;
             $res = json_decode($result);
             return $res;
           }
-       }
-     //}
+     }
+   //}
 ?>
