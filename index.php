@@ -68,45 +68,45 @@ function notify_message($params, $token) {
 }
 */
 define('LINE_API', "https://notify-api.line.me/api/notify");
-$x = 1;
-while($x <= 1) {
-     $token = "3ACDH8LYP69SBzA171EZs8Vg4Edlh9i5ZBVfBmSUhMk"; //ใส่Token ที่copy เอาไว้
-               }
+$x = 0;
+while($x >= 1) {
+     $token = "3ACDH8LYP69SBzA171EZs8Vg4Edlh9i5ZBVfBmSUhMk"; //ใส่Token ที่copy เอาไว้         
+     while($x <= 0) {
+          $token = "3ACDH8LYP69SBzA171EZs8Vg4Edlh9i5ZBVfBmSUhMk"; //ใส่Token ที่copy เอาไว้
+          $i++;          
+          $params = array(
+            "message"        => "อรุนสวัสดิ์ครับ", //ข้อความที่ต้องการส่ง สูงสุด 1000 ตัวอักษร
+            "stickerPkg"     => 1, //stickerPackageId
+            "stickerId"      => 2, //stickerId
+            "imageThumbnail" => "https://media.giphy.com/media/GEC49lPULGaoE/giphy.gif", // max size 240x240px JPEG
+            "imageFullsize"  => "https://media.giphy.com/media/GEC49lPULGaoE/giphy.gif", //max size 1024x1024px JPEG
+          );
+          $res = notify_message($params, $token);
+          // print_r($res);
 
-    
-$params = array(
-  "message"        => "อรุนสวัสดิ์ครับ", //ข้อความที่ต้องการส่ง สูงสุด 1000 ตัวอักษร
-  "stickerPkg"     => 1, //stickerPackageId
-  "stickerId"      => 2, //stickerId
-  "imageThumbnail" => "https://media.giphy.com/media/GEC49lPULGaoE/giphy.gif", // max size 240x240px JPEG
-  "imageFullsize"  => "https://media.giphy.com/media/GEC49lPULGaoE/giphy.gif", //max size 1024x1024px JPEG
-);
-$res = notify_message($params, $token);
-// print_r($res);
- 
-function notify_message($params, $token) {
-  $queryData = array(
-    'message'          => $params["message"],
-    'stickerPackageId' => $params["stickerPkg"],
-    'stickerId'        => $params["stickerId"],
-    'imageThumbnail'   => $params["imageThumbnail"],
-    'imageFullsize'    => $params["imageFullsize"],
-  );
-  $queryData = http_build_query($queryData, ' ', '&');
-  $headerOptions = array(
-    'http' => array(
-      'method'  => 'POST',
-      'header'  => "Content-Type: application/x-www-form-urlencoded\r\n"
-      . "Authorization: Bearer " . $token . "\r\n"
-      . "Content-Length: " . strlen($queryData) . "\r\n",
-      'content' => $queryData,
-    ),
-  );
-  $context = stream_context_create($headerOptions);
-  $result = file_get_contents(LINE_API, FALSE, $context);
-  $res = json_decode($result);
-  return $res;
-}
-}
-
+          function notify_message($params, $token) {
+            $queryData = array(
+              'message'          => $params["message"],
+              'stickerPackageId' => $params["stickerPkg"],
+              'stickerId'        => $params["stickerId"],
+              'imageThumbnail'   => $params["imageThumbnail"],
+              'imageFullsize'    => $params["imageFullsize"],
+            );
+            $queryData = http_build_query($queryData, ' ', '&');
+            $headerOptions = array(
+              'http' => array(
+                'method'  => 'POST',
+                'header'  => "Content-Type: application/x-www-form-urlencoded\r\n"
+                . "Authorization: Bearer " . $token . "\r\n"
+                . "Content-Length: " . strlen($queryData) . "\r\n",
+                'content' => $queryData,
+              ),
+            );
+            $context = stream_context_create($headerOptions);
+            $result = file_get_contents(LINE_API, FALSE, $context);
+            $res = json_decode($result);
+            return $res;
+          }
+       }
+     }
 ?>
