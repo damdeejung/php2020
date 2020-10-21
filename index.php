@@ -28,21 +28,23 @@ function notify_message($message,$stickerPkg,$stickerId,$token){
   return $res;
  }
 
+define('LINE_API',"https://notify-api.line.me/api/notify");
 $token = "3ACDH8LYP69SBzA171EZs8Vg4Edlh9i5ZBVfBmSUhMk"; //ใส่Token ที่copy เอาไว้
+$str = "hello World"; //ข้อความที่ต้องการส่ง สูงสุด 1000 ตัวอักษร
+$stickerPkg = 1; //stickerPackageId
+$stickerId = 106; //stickerId
 $res = notify_message($str,$stickerPkg,$stickerId,$token);
 print_r($res);
 notify_message(); // call the function
 
+define('LINE_API',"https://notify-api.line.me/api/notify");
 $token = "3ACDH8LYP69SBzA171EZs8Vg4Edlh9i5ZBVfBmSUhMk"; //ใส่Token ที่copy เอาไว้
+$str = "hello World"; //ข้อความที่ต้องการส่ง สูงสุด 1000 ตัวอักษร
+$stickerPkg = 1; //stickerPackageId
+$stickerId = 106; //stickerId
 $res = notify_message($str,$stickerPkg,$stickerId,$token);
 print_r($res);
 notify_message(); // call the function
-
-$token = "3ACDH8LYP69SBzA171EZs8Vg4Edlh9i5ZBVfBmSUhMk"; //ใส่Token ที่copy เอาไว้
-$res = notify_message($str,$stickerPkg,$stickerId,$token);
-print_r($res);
-notify_message(); // call the function
-
 
 
 ?>
