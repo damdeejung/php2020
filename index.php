@@ -25,8 +25,9 @@ function notify_message($message,$stickerPkg,$stickerId,$token){
    $context = stream_context_create($headerOptions);
    $result = file_get_contents(LINE_API,FALSE,$context);     
    $res = json_decode($result);
+}     
   return $res;  
- }
+ //}
 
 ?>
 
