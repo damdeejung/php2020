@@ -1,38 +1,45 @@
 <?php
-define('LINE_API',"https://notify-api.line.me/api/notify");
-$token = "3ACDH8LYP69SBzA171EZs8Vg4Edlh9i5ZBVfBmSUhMk"; //ใส่Token ที่copy เอาไว้
-$str = "hello World"; //ข้อความที่ต้องการส่ง สูงสุด 1000 ตัวอักษร
-$stickerPkg = 1; //stickerPackageId
-$stickerId = 106; //stickerId
-$res = notify_message($str,$stickerPkg,$stickerId,$token);
-print_r($res);
-function notify_message($message,$stickerPkg,$stickerId,$token){
-     $queryData = array(
-      'message' => $message,
-      'stickerPackageId'=>$stickerPkg,
-      'stickerId'=>$stickerId
-     );
-     $queryData = http_build_query($queryData,'','&');
-     $headerOptions = array(
-         'http'=>array(
-             'method'=>'POST',
-             'header'=> "Content-Type: application/x-www-form-urlencoded\r\n"
-                 ."Authorization: Bearer ".$token."\r\n"
-                       ."Content-Length: ".strlen($queryData)."\r\n",
-             'content' => $queryData
-         ),
-     );
-   $context = stream_context_create($headerOptions);
-   $result = file_get_contents(LINE_API,FALSE,$context);     
-   $res = json_decode($result);
-}     
-  return $res;  
- //----------
+$token = '3ACDH8LYP69SBzA171EZs8Vg4Edlh9i5ZBVfBmSUhMk';
+$ln = new KS\Line\LineNotify($token);
+
+$text = 'Hello Line Notify';
+$ln->send($text);
 
 ?>
 
 
 /*/---------------------------------------------------------------------------
+
+Example : notify text message
+
+$token = 'YOUR LINE NOTIFY TOKEN';
+$ln = new KS\Line\LineNotify($token);
+
+$text = 'Hello Line Notify';
+$ln->send($text);
+Example : notify text with image
+
+$text = 'Hello Line Notify';
+$image_path = '/YOUR/IMAGE/PATH'; //Line notify allow only jpeg and png file
+$ln->send($text, $image_path);
+
+//HTTP or HTTPS image path
+$image_path = 'https://lorempixel.com/800/600/'; //Line notify allow only jpeg and png file
+$ln->send($text, $image_path);
+Example : notify text with sticker
+
+See sticker list https://devdocs.line.me/files/sticker_list.pdf
+
+$text = 'Hello Sticker';
+$sticker = ['stickerPackageId' => '1', 'stickerId' => '401'];
+$ln->send($text, null, $sticker);
+
+
+
+
+
+
+
 sleep(20);
 $token = "3ACDH8LYP69SBzA171EZs8Vg4Edlh9i5ZBVfBmSUhMk"; //ใส่Token ที่copy เอาไว้
 $res = notify_message($str,$stickerPkg,$stickerId,$token);
