@@ -28,11 +28,6 @@ function notify_message($message,$stickerPkg,$stickerId,$token){
 }     
   return $res;  
  //----------
-$token = "3ACDH8LYP69SBzA171EZs8Vg4Edlh9i5ZBVfBmSUhMk"; //ใส่Token ที่copy เอาไว้
-$res = notify_message($str,$stickerPkg,$stickerId,$token);
-print_r($res);
-notify_message(); // call the function
-return $res;  
 
 ?>
 
