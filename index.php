@@ -1,6 +1,6 @@
 <?php
 define('LINE_API', "https://notify-api.line.me/api/notify");
-$token = "3ACDH8LYP69SBzA171EZs8Vg4Edlh9i5ZBVfBmSUhMk"; //ใส่Token ที่copy เอาไว้
+$token = "O4iWswQxqWbRkbPszlzLea8sdqvvI2fIMEb9pRF6VpY"; //เหรียญทอง
 $params = array(
   "message"        => "อรุณสวัสดิ์ครับ", //ข้อความที่ต้องการส่ง สูงสุด 1000 ตัวอักษร
   //"stickerPkg"     => 1, //stickerPackageId
@@ -33,10 +33,7 @@ function notify_message($params, $token) {
   $res = json_decode($result);
   return $res;
 }
-$token = "3ACDH8LYP69SBzA171EZs8Vg4Edlh9i5ZBVfBmSUhMk"; //ใส่Token ที่copy เอาไว้
-$res = notify_message($params, $token);    // print_r($res);
-notify_message();
-$token = "3ACDH8LYP69SBzA171EZs8Vg4Edlh9i5ZBVfBmSUhMk"; //ใส่Token ที่copy เอาไว้
+$token = "0btH1CvWA5iJcJoNBV2ATVUV7zOovtewuZbSHfCY9HI"; //ชุมแสง
 $res = notify_message($params, $token);    // print_r($res);
 notify_message();
 
