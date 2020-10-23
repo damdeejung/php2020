@@ -8,7 +8,7 @@ $params = array(
   "imageThumbnail" => "https://media.giphy.com/media/GEC49lPULGaoE/giphy.gif", // max size 240x240px JPEG
   "imageFullsize"  => "https://media.giphy.com/media/GEC49lPULGaoE/giphy.gif", //max size 1024x1024px JPEG
 );
-$res = notify_message($params, $token);
+//$res = notify_message($params, $token);
 // print_r($res);
  
 function notify_message($params, $token) {
