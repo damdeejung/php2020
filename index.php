@@ -8,8 +8,7 @@ $params = array(
   "imageThumbnail" => "https://media.giphy.com/media/GEC49lPULGaoE/giphy.gif", // max size 240x240px JPEG
   "imageFullsize"  => "https://media.giphy.com/media/GEC49lPULGaoE/giphy.gif", //max size 1024x1024px JPEG
 );
-//$res = notify_message($params, $token);
-// print_r($res);
+$res = notify_message($params, $token);    // print_r($res);
  
 function notify_message($params, $token) {
   $queryData = array(
@@ -34,5 +33,8 @@ function notify_message($params, $token) {
   $res = json_decode($result);
   return $res;
 }
+$token = "3ACDH8LYP69SBzA171EZs8Vg4Edlh9i5ZBVfBmSUhMk"; //ใส่Token ที่copy เอาไว้
+$res = notify_message($params, $token);    // print_r($res);
+notify_message();
 
 ?>
