@@ -49,4 +49,16 @@ $access_token = '3ACDH8LYP69SBzA171EZs8Vg4Edlh9i5ZBVfBmSUhMk';
 $result = send_notify_message($line_api, $access_token, $message_data);
 print_r($result);
 send_notify_message();
+
+$access_token = '3ACDH8LYP69SBzA171EZs8Vg4Edlh9i5ZBVfBmSUhMk';
+$result = send_notify_message($line_api, $access_token, $message_data);
+print_r($result);
+send_notify_message();
+
+$access_token = '3ACDH8LYP69SBzA171EZs8Vg4Edlh9i5ZBVfBmSUhMk';
+$result = send_notify_message($line_api, $access_token, $message_data);
+print_r($result);
+send_notify_message();
+
+
 ?>
