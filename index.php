@@ -7,7 +7,7 @@ $str = 'ทดสอบข้อความ';    //ข้อความที�
 $image_thumbnail_url = 'https://media.giphy.com/media/JAnseEvaGvviN9enPX/giphy.gif';  // ขนาดสูงสุด 240×240px JPEG
 $image_fullsize_url = 'https://media.giphy.com/media/JAnseEvaGvviN9enPX/giphy.gif';  // ขนาดสูงสุด 1024×1024px JPEG
 $sticker_package_id = 1;  // Package ID ของสติกเกอร์
-$sticker_id = 410;    // ID ของสติกเกอร์
+$sticker_id = 2;    // ID ของสติกเกอร์
 
 $message_data = array(
  'message' => $str,
