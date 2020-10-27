@@ -6,8 +6,8 @@ $access_token = '3ACDH8LYP69SBzA171EZs8Vg4Edlh9i5ZBVfBmSUhMk';
 $str = 'ทดสอบข้อความ';    //ข้อความที่ต้องการส่ง สูงสุด 1000 ตัวอักษร
 $image_thumbnail_url = 'https://media.giphy.com/media/JAnseEvaGvviN9enPX/giphy.gif';  // ขนาดสูงสุด 240×240px JPEG
 $image_fullsize_url = 'https://media.giphy.com/media/JAnseEvaGvviN9enPX/giphy.gif';  // ขนาดสูงสุด 1024×1024px JPEG
-$sticker_package_id = ;  // Package ID ของสติกเกอร์
-$sticker_id = ;    // ID ของสติกเกอร์
+$sticker_package_id = 1;  // Package ID ของสติกเกอร์
+$sticker_id = 2;    // ID ของสติกเกอร์
 
 $message_data = array(
  'message' => $str,
