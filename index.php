@@ -1,7 +1,7 @@
 <?php
 
 /////////////////// ดึงข่าว ////////////////
-$ch = curl_init('https://news.mthai.com/feed'); //แหล่งข่าว
+$ch = curl_init('https://www.thairath.co.th/rss/news'); //แหล่งข่าว
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_HEADER, 0);
 $contents = curl_exec($ch);
