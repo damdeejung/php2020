@@ -1,7 +1,7 @@
 <?php
 
 /////////////////// ดึงข่าว ////////////////
-$ch = curl_init('https://www.thairath.co.th/rss/news'); //แหล่งข่าว
+$ch = curl_init('https://www.thairath.co.th/rss/news.xml'); //แหล่งข่าว
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_HEADER, 0);
 $contents = curl_exec($ch);
@@ -33,32 +33,12 @@ curl_setopt( $chOne, CURLOPT_POSTFIELDS, "message=$news");
 // follow redirects 
 curl_setopt( $chOne, CURLOPT_FOLLOWLOCATION, 1); 
 //ADD header array
-$headers = array( 'Content-type: application/x-www-form-urlencoded', 'Authorization: Bearer O4iWswQxqWbRkbPszlzLea8sdqvvI2fIMEb9pRF6VpY', ); //หรียญทอง
+$headers = array( 'Content-type: application/x-www-form-urlencoded', 'Authorization: Bearer 3ACDH8LYP69SBzA171EZs8Vg4Edlh9i5ZBVfBmSUhMk', ); //damdee
 curl_setopt($chOne, CURLOPT_HTTPHEADER, $headers);
 //RETURN
 curl_setopt( $chOne, CURLOPT_RETURNTRANSFER, 1); 
 $result = curl_exec( $chOne ); 
 
-$headers = array( 'Content-type: application/x-www-form-urlencoded', 'Authorization: Bearer 0btH1CvWA5iJcJoNBV2ATVUV7zOovtewuZbSHfCY9HI', ); //ชุมแสง
-curl_setopt($chOne, CURLOPT_HTTPHEADER, $headers);	
-curl_setopt( $chOne, CURLOPT_RETURNTRANSFER, 1); 
-$result = curl_exec( $chOne );
-$headers = array( 'Content-type: application/x-www-form-urlencoded', 'Authorization: Bearer osvs6eFcvIQWdA8gwI1rxdITHbmTWFB2CT7RpW3Q3Pv', ); //เก๋งทองคำ
-curl_setopt($chOne, CURLOPT_HTTPHEADER, $headers);
-curl_setopt( $chOne, CURLOPT_RETURNTRANSFER, 1); 
-$result = curl_exec( $chOne ); 	
-$headers = array( 'Content-type: application/x-www-form-urlencoded', 'Authorization: Bearer vs1Hs0LqnDTJZQ9wWhs2hu0aiyAKexXFfg8N8tjB5eb', ); //นิตยา
-curl_setopt($chOne, CURLOPT_HTTPHEADER, $headers);
-curl_setopt( $chOne, CURLOPT_RETURNTRANSFER, 1); 
-$result = curl_exec( $chOne );
-$headers = array( 'Content-type: application/x-www-form-urlencoded', 'Authorization: Bearer rU5QQMxtA8VE3gWzGmyE9R4GYA3kjIQrArcU0UIKevq', ); //ปัญจ
-curl_setopt($chOne, CURLOPT_HTTPHEADER, $headers);
-curl_setopt( $chOne, CURLOPT_RETURNTRANSFER, 1); 
-$result = curl_exec( $chOne );
-$headers = array( 'Content-type: application/x-www-form-urlencoded', 'Authorization: Bearer fwEJpjy74gqS2i6T08BVKxUqCsNBckXC19J427yHGYk', ); //ดำบรรณ
-curl_setopt($chOne, CURLOPT_HTTPHEADER, $headers);
-curl_setopt( $chOne, CURLOPT_RETURNTRANSFER, 1); 
-$result = curl_exec( $chOne );
 
  
 //Check error 
@@ -70,7 +50,6 @@ curl_close( $chOne );
 
 
 ?>
-
 
 
 /***********************************************************************************************
