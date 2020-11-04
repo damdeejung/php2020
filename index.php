@@ -8,7 +8,53 @@ curl_setopt($cv, CURLOPT_RETURNTRANSFER, 1);
 $output = curl_exec($cv);
 $js_array=json_decode($output, true);
 
+define('LINE_API', "https://notify-api.line.me/api/notify");
+$token = "3ACDH8LYP69SBzA171EZs8Vg4Edlh9i5ZBVfBmSUhMk"; //dk
+$params = array(
+ // "message"        => "อรุณสวัสดิ์ครับ", //ข้อความที่ต้องการส่ง สูงสุด 1000 ตัวอักษร
+	
+//	$data = array(
+ ‘message’ => ‘
+รายงานสถานการณ์โควิท
+ผู้ติดเชื้อ : ‘.$js_array[‘Confirmed’].’ คน
+เสียชีวิต : ‘.$js_array[‘Deaths’].’ คน
+หายแล้ว : ‘.$js_array[‘Recovered’].’ คน
+รักษาตัว : ‘.$js_array[‘Hospitalized’].’ คน
+เวลาล่าสุด : ‘.$js_array[‘UpdateDate’].’’ );
+	    
+  //"stickerPkg"     => 1, //stickerPackageId
+  //"stickerId"      => 2, //stickerId
+  //"imageThumbnail" => "https://media.giphy.com/media/KUZIh9xzcTNvkyZJFn/giphy.gif", // max size 240x240px JPEG
+  //"imageFullsize"  => "https://media.giphy.com/media/KUZIh9xzcTNvkyZJFn/giphy.gif", //max size 1024x1024px JPEG
+);
+$res = notify_message($params, $token);
+print_r($res);
+ 
+function notify_message($params, $token) {
+  $queryData = array(
+    'message'          => $params["message"],
+    //'stickerPackageId' => $params["stickerPkg"],
+    //'stickerId'        => $params["stickerId"],
+    //'imageThumbnail'   => $params["imageThumbnail"],
+    //'imageFullsize'    => $params["imageFullsize"],
+  );
+  $queryData = http_build_query($queryData, ' ', '&');
+  $headerOptions = array(
+    'http' => array(
+      'method'  => 'POST',
+      'header'  => "Content-Type: application/x-www-form-urlencoded\r\n"
+      . "Authorization: Bearer " . $token . "\r\n"
+      . "Content-Length: " . strlen($queryData) . "\r\n",
+      'content' => $queryData,
+    ),
+  );
+  $context = stream_context_create($headerOptions);
+  $result = file_get_contents(LINE_API, FALSE, $context);
+  $res = json_decode($result);
+  return $res;
+}
 
+/*************
 $notifyURL = “https://notify-api.line.me/api/notify";
 $accToken = “3ACDH8LYP69SBzA171EZs8Vg4Edlh9i5ZBVfBmSUhMk”;
 $headers = array(
