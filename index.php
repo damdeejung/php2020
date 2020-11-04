@@ -1,18 +1,21 @@
 <?php
 $cv = curl_init();
 // ตั้ง Url สำหรับดึงข้อมูล 
-curl_setopt($cv, CURLOPT_URL, “https:covid19.th-stat.com/api/open/today");
+curl_setopt($cv, CURLOPT_URL, “https://covid19.th-stat.com/api/open/today");
 header (‘Content-type: text/html; charset=utf-8’);
 curl_setopt($cv, CURLOPT_RETURNTRANSFER, 1);
 // ตัวแปร $output เก็บข้อมูลทั้งหมดที่ดึงมา 
 $output = curl_exec($cv);
 $js_array=json_decode($output, true);
+
+
 $notifyURL = “https://notify-api.line.me/api/notify";
 $accToken = “3ACDH8LYP69SBzA171EZs8Vg4Edlh9i5ZBVfBmSUhMk”;
 $headers = array(
  ‘Content-Type: application/x-www-form-urlencoded’,
  ‘Authorization: Bearer ‘.$accToken
 );
+	    
 $data = array(
  ‘message’ => ‘
 รายงานสถานการณ์โควิท
@@ -54,9 +57,9 @@ $result = json_decode($result,TRUE);
 //$description = $xml->channel->item[$i]->description;
 //$news .= $title."\n".$url."\n\n";
 
-//}
+
 /////////////////////////////////////
-/*-------------------------------------------------------------------
+/********
 $message = $_REQUEST['message'];
 $chOne = curl_init(); 
 curl_setopt( $chOne, CURLOPT_URL, "https://notify-api.line.me/api/notify"); 
@@ -88,6 +91,6 @@ else { $result_ = json_decode($result, true);
 echo "status : ".$result_['status']; echo "message : ". $result_['message']; } 
 //Close connect 
 curl_close( $chOne ); 
+*/////--------------------------------
 
-*/-----------------------------------------------------------------------------------------
 ?>
