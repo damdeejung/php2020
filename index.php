@@ -1,23 +1,62 @@
 <?php
-
-/////////////////// ดึงข่าว ////////////////
-$ch = curl_init('https://www.thairath.co.th/rss/news'); //แหล่งข่าว
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch, CURLOPT_HEADER, 0);
-$contents = curl_exec($ch);
-curl_close($ch);
+$cv = curl_init();
+// ตั้ง Url สำหรับดึงข้อมูล 
+curl_setopt($cv, CURLOPT_URL, “https:covid19.th-stat.com/api/open/today");
+header (‘Content-type: text/html; charset=utf-8’);
+curl_setopt($cv, CURLOPT_RETURNTRANSFER, 1);
+// ตัวแปร $output เก็บข้อมูลทั้งหมดที่ดึงมา 
+$output = curl_exec($cv);
+$js_array=json_decode($output, true);
+$notifyURL = “https://notify-api.line.me/api/notify";
+$accToken = “3ACDH8LYP69SBzA171EZs8Vg4Edlh9i5ZBVfBmSUhMk”;
+$headers = array(
+ ‘Content-Type: application/x-www-form-urlencoded’,
+ ‘Authorization: Bearer ‘.$accToken
+);
+$data = array(
+ ‘message’ => ‘
+รายงานสถานการณ์โควิท
+ผู้ติดเชื้อ : ‘.$js_array[‘Confirmed’].’ คน
+เสียชีวิต : ‘.$js_array[‘Deaths’].’ คน
+หายแล้ว : ‘.$js_array[‘Recovered’].’ คน
+รักษาตัว : ‘.$js_array[‘Hospitalized’].’ คน
+เวลาล่าสุด : ‘.$js_array[‘UpdateDate’].’’ );
+	    
+$ch = curl_init();
+curl_setopt( $ch, CURLOPT_URL, $notifyURL);
+curl_setopt( $ch, CURLOPT_POST, 1);
+curl_setopt( $ch, CURLOPT_POSTFIELDS, http_build_query($data));
+curl_setopt( $ch, CURLOPT_HTTPHEADER, $headers);
+curl_setopt( $ch, CURLOPT_SSL_VERIFYHOST, 2); 
+curl_setopt( $ch, CURLOPT_SSL_VERIFYPEER, 1); 
+curl_setopt( $ch, CURLOPT_FOLLOWLOCATION, 1);
+curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1);
+$result = curl_exec( $ch );
+curl_close( $ch );
  
-$xml = new SimpleXmlElement($contents);
+var_dump($result);
+$result = json_decode($result,TRUE);
+	    
+	    
+	    
+/////////////////// ดึงข่าว ////////////////
+//$ch = curl_init('https://www.thairath.co.th/rss/news'); //แหล่งข่าว
+//curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+//curl_setopt($ch, CURLOPT_HEADER, 0);
+//$contents = curl_exec($ch);
+//curl_close($ch);
+ 
+//$xml = new SimpleXmlElement($contents);
 //for($i=0; $i<count($xml->channel->item); $i++){
-	for($i=0; $i<5; $i++){
-$title = $xml->channel->item[$i]->title;
-$url = $xml->channel->item[$i]->link;
-$description = $xml->channel->item[$i]->description;
-$news .= $title."\n".$url."\n\n";
+//	for($i=0; $i<5; $i++){
+//$title = $xml->channel->item[$i]->title;
+//$url = $xml->channel->item[$i]->link;
+//$description = $xml->channel->item[$i]->description;
+//$news .= $title."\n".$url."\n\n";
 
-}
+//}
 /////////////////////////////////////
-
+/*-------------------------------------------------------------------
 $message = $_REQUEST['message'];
 $chOne = curl_init(); 
 curl_setopt( $chOne, CURLOPT_URL, "https://notify-api.line.me/api/notify"); 
@@ -50,5 +89,5 @@ echo "status : ".$result_['status']; echo "message : ". $result_['message']; }
 //Close connect 
 curl_close( $chOne ); 
 
-
+*/-----------------------------------------------------------------------------------------
 ?>
