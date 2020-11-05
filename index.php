@@ -22,8 +22,8 @@ $params = array(
 //รักษาตัว : ‘.$js_array[‘Hospitalized’].’ คน
 //เวลาล่าสุด : ‘.$js_array[‘UpdateDate’].’’ );
 	    
-  //"stickerPkg"     => 1, //stickerPackageId
-  //"stickerId"      => 2, //stickerId
+  "stickerPkg"     => 1, //stickerPackageId
+  "stickerId"      => 2, //stickerId
   //"imageThumbnail" => "https://media.giphy.com/media/KUZIh9xzcTNvkyZJFn/giphy.gif", // max size 240x240px JPEG
   //"imageFullsize"  => "https://media.giphy.com/media/KUZIh9xzcTNvkyZJFn/giphy.gif", //max size 1024x1024px JPEG
 );
@@ -33,8 +33,8 @@ print_r($res);
 function notify_message($params, $token) {
   $queryData = array(
     'message'          => $params["message"],
-    //'stickerPackageId' => $params["stickerPkg"],
-    //'stickerId'        => $params["stickerId"],
+    'stickerPackageId' => $params["stickerPkg"],
+    'stickerId'        => $params["stickerId"],
     //'imageThumbnail'   => $params["imageThumbnail"],
     //'imageFullsize'    => $params["imageFullsize"],
   );
