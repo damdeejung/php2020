@@ -11,16 +11,16 @@
 define('LINE_API', "https://notify-api.line.me/api/notify");
 $token = "3ACDH8LYP69SBzA171EZs8Vg4Edlh9i5ZBVfBmSUhMk"; //dk
 $params = array(
-  "message"        => "อรุณสวัสดิ์ครับ", //ข้อความที่ต้องการส่ง สูงสุด 1000 ตัวอักษร
+//  "message"        => "อรุณสวัสดิ์ครับ", //ข้อความที่ต้องการส่ง สูงสุด 1000 ตัวอักษร
 	
 //	$data = array(
-// ‘message’ => ‘
-//รายงานสถานการณ์โควิท
-//ผู้ติดเชื้อ : ‘.$js_array[‘Confirmed’].’ คน
-//เสียชีวิต : ‘.$js_array[‘Deaths’].’ คน
-//หายแล้ว : ‘.$js_array[‘Recovered’].’ คน
-//รักษาตัว : ‘.$js_array[‘Hospitalized’].’ คน
-//เวลาล่าสุด : ‘.$js_array[‘UpdateDate’].’’ );
+ "message" => ‘
+รายงานสถานการณ์โควิท
+ผู้ติดเชื้อ : ‘.$js_array[‘Confirmed’].’ คน
+เสียชีวิต : ‘.$js_array[‘Deaths’].’ คน
+หายแล้ว : ‘.$js_array[‘Recovered’].’ คน
+รักษาตัว : ‘.$js_array[‘Hospitalized’].’ คน
+เวลาล่าสุด : ‘.$js_array[‘UpdateDate’].’’ );
 	    
   "stickerPkg"     => 1, //stickerPackageId
   "stickerId"      => 2, //stickerId
