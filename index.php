@@ -64,12 +64,12 @@ $headers = array(
 	    
 $data = array(
  ‘message’ => ‘
-รายงานสถานการณ์โควิท
-ผู้ติดเชื้อ : ‘.$js_array[‘Confirmed’].’ คน
-เสียชีวิต : ‘.$js_array[‘Deaths’].’ คน
-หายแล้ว : ‘.$js_array[‘Recovered’].’ คน
-รักษาตัว : ‘.$js_array[‘Hospitalized’].’ คน
-เวลาล่าสุด : ‘.$js_array[‘UpdateDate’].’’ );
+รายงานสถานการณ์โควิท ’);
+//ผู้ติดเชื้อ : ‘.$js_array[‘Confirmed’].’ คน
+//เสียชีวิต : ‘.$js_array[‘Deaths’].’ คน
+//หายแล้ว : ‘.$js_array[‘Recovered’].’ คน
+//รักษาตัว : ‘.$js_array[‘Hospitalized’].’ คน
+//เวลาล่าสุด : ‘.$js_array[‘UpdateDate’].’’ );
 	    
 $ch = curl_init();
 curl_setopt( $ch, CURLOPT_URL, $notifyURL);
