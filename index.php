@@ -8,6 +8,7 @@
 //$output = curl_exec($cv);
 //$js_array=json_decode($output, true);
 
+/**************************************
 define('LINE_API', "https://notify-api.line.me/api/notify");
 $token = "3ACDH8LYP69SBzA171EZs8Vg4Edlh9i5ZBVfBmSUhMk"; //dk
 $params = array(
@@ -53,7 +54,7 @@ function notify_message($params, $token) {
   return $res;
 }
 
-/*************
+*////////
 $notifyURL = “https://notify-api.line.me/api/notify";
 $accToken = “3ACDH8LYP69SBzA171EZs8Vg4Edlh9i5ZBVfBmSUhMk”;
 $headers = array(
